@@ -12,43 +12,30 @@ with open("data/forecast_5days_a.json") as json_file:
 # print(json_data)
 
 
-
-## NEW BLOCK 5 day overview header
-## for temp, min & max, and day occuring
-
-## for avg, low & high over the week
-
-
-
-
-
-## NEW BLOCK date line header
 #for loop
 for item in json_data["DailyForecasts"]:
 
 #for temperature 
-min_temp = (item["Temperature"]["Minimum"]["Value"])
-max_temp = (item["Temperature"]["Maximum"]["Value"])
-print( f"Minimum: {min_temp}, Maximum: {max_temp}")
+    min_temp = (item["Temperature"]["Minimum"]["Value"])
+    max_temp = (item["Temperature"]["Maximum"]["Value"])
+    print( f"Minimum: {min_temp}, Maximum: {max_temp}")
     
 ######## Mentors - how to use {temp}{DEGREE_SYBMOL}
 # min_temp = [convert_f_to_c(item) for item in min_temp]
 
 
-
-
 # for day 
-long_chance_d = (item["Day"]["LongPhrase"])
-long_chance_n = (item["Night"]["LongPhrase"])
+    long_chance_d = (item["Day"]["LongPhrase"])
+    long_chance_n = (item["Night"]["LongPhrase"])
 
-rain_chance_d = (item["Day"]["PrecipitationProbability"])
-rain_chance_n = (item["Night"]["PrecipitationProbability"])
+    rain_chance_d = (item["Day"]["PrecipitationProbability"])
+    rain_chance_n = (item["Night"]["PrecipitationProbability"])
 
-print(f"Daytime: {long_chance_d}")
-print(f"Chance of rain: {rain_chance_n}")
+    print(f"Daytime: {long_chance_d}")
+    print(f"Chance of rain: {rain_chance_n}")
 
-print(f"Nighttime: {long_chance_n}")
-print(f"Chance of rain: {rain_chance_n}")
+    print(f"Nighttime: {long_chance_n}")
+    print(f"Chance of rain: {rain_chance_n}")
 
 
 ## Split into days 
@@ -58,38 +45,63 @@ DailyForecasts = []
 
 # Add data to list
 DailyForecasts.append(json_data)
-print(DailyForecasts)
 
-#index items in data
-item = "Date"
-index = DailyForecasts.index(item)
+
+####index items in data
+
+# print(DailyForecasts[1][1])
+
+# item = "Date"
+# index = DailyForecasts.index(item)
+
+# for item in json_data:
+#     print(item, json_data[item])
+
+# for key, value in DailyForecasts.items():
+#     print(key, value)
+
+# for item in json_data["DailyForecasts"]:
+#     date_key = json_data["DailyForecasts"][item]["Date"]
+
+
+#this gets me to the first set of dates
+print (json_data["DailyForecasts"][0])
+
+# forecast = (["DailyForecasts"][0])
+# print(forecast["Date"])
+
+
+
+
+
 
 
 
 
 
 ## an approach
-for dates in DailyForecasts:
-    print (len(dates))
+# for dates in DailyForecasts:
+# #print item off a list
+#     print (DailyForecasts["Date"])
 
-for date in DailyForecasts(len(dates)):
-        line = f"-------- {dates[date]} --------"
-        output.append(line)
-        line2 = f"Minimum Temperature: {format_temperature(min_temp[date])}"
-        output.append(line2)
-        line3 = f"Maximum Temperature: {format_temperature(max_temp[date])}"
-        output.append(line3)
-        line4 = f"Daytime: {long_chance_d[date]}"
-        output.append(line4)
-        line5 = f"    Chance of rain:  {rain_chance_d[date]}%"
-        output.append(line5)
-        line6 = f"Nighttime: {long_chance_n[date]}"
-        output.append(line6)
-        line7 = f"    Chance of rain:  {rain_chance_n[date]}%"
-        output.append(line7)
+# for date in DailyForecasts(len(dates)):
+#         line1 = f"-------- {dates[date]} --------"
+#         output.append(line1)
+#         line2 = f"Minimum Temperature: {format_temperature(min_temp[date])}"
+#         output.append(line2)
+#         line3 = f"Maximum Temperature: {format_temperature(max_temp[date])}"
+#         output.append(line3)
+#         line4 = f"Daytime: {long_chance_d[date]}"
+#         output.append(line4)
+#         line5 = f"    Chance of rain:  {rain_chance_d[date]}%"
+#         output.append(line5)
+#         line6 = f"Nighttime: {long_chance_n[date]}"
+#         output.append(line6)
+#         line7 = f"    Chance of rain:  {rain_chance_n[date]}%"
+#         output.append(line7)
 
-        final_output = "\n".join(output)
-        print(final_output)
+#         final_output = "\n".join(output)
+#         print(final_output)
 
 
 
