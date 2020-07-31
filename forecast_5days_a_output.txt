@@ -1,0 +1,46 @@
+5 Day Overview
+    The lowest temperature will be 8.3°C, and will occur on Friday 19 June 2020.
+    The highest temperature will be 22.2°C, and will occur on Sunday 21 June 2020.
+    The average low this week is 11.7°C.
+    The average high this week is 20.1°C.
+
+-------- Friday 19 June 2020 --------
+Minimum Temperature: 8.3°C
+Maximum Temperature: 17.8°C
+Daytime: Sunshine mixing with some clouds
+    Chance of rain:  1%
+Nighttime: Clear
+    Chance of rain:  0%
+
+-------- Saturday 20 June 2020 --------
+Minimum Temperature: 10.6°C
+Maximum Temperature: 19.4°C
+Daytime: Plenty of sunshine
+    Chance of rain:  0%
+Nighttime: Clear
+    Chance of rain:  1%
+
+-------- Sunday 21 June 2020 --------
+Minimum Temperature: 14.4°C
+Maximum Temperature: 22.2°C
+Daytime: Pleasant with sunshine
+    Chance of rain:  1%
+Nighttime: Mainly clear
+    Chance of rain:  1%
+
+-------- Monday 22 June 2020 --------
+Minimum Temperature: 14.4°C
+Maximum Temperature: 22.2°C
+Daytime: Increasing clouds and breezy; periods of rain late in the afternoon
+    Chance of rain:  63%
+Nighttime: Breezy in the evening with periods of rain; otherwise, clouds breaking
+    Chance of rain:  71%
+
+-------- Tuesday 23 June 2020 --------
+Minimum Temperature: 10.6°C
+Maximum Temperature: 18.9°C
+Daytime: A shower; plenty of clouds in the morning, then times of clouds and sun in the afternoon
+    Chance of rain:  56%
+Nighttime: Partly cloudy with a shower in spots late
+    Chance of rain:  46%
+
