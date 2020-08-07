@@ -33,11 +33,8 @@ def convert_f_to_c(temp_in_farenheit):
     Returns:
         An integer representing a temperature in degrees celcius.
     """
-    #Attempt 1
-    # if temp_cel = float(temp_in_farenheit - 32) * 5/9)
-    # return temp_cel
+    return round((temp_in_farenheit - 32) * 5/9, 1)
 
-    return round(float(temp_in_farenheit - 32) * 5 / 9,1)
 
 
 
@@ -50,12 +47,9 @@ def calculate_mean(total, num_items):
     Returns:
         An integer representing the mean of the numbers.
     """
-    return (total) / (num_items)
-
-
-
-
-
+    mean = float(total)/ num_items
+    mean = round(mean,1)
+    return mean
 
 
 
@@ -69,264 +63,123 @@ def process_weather(forecast_file):
     Returns:
         A string containing the processed and formatted weather data.
     """
-    pass
+#     pass
+# if __name__ == "__main__":
+#     print(process_weather("data/forecast_5days_a.json"))
 
 
+    with open(forecast_file) as json_file:
+        json_data = json.load(json_file)
+
+    # #open the file
+    # with open("data/forecast_5days_a.json") as json_file:
+    #     # with open("data/forecast_5days_b.json") as json_file:
+    #     #     with open("data/forecast_8days.json") as json_file:
+    #             json_data = json.load(json_file)
+
+
+    # variables for while loops
+    min_temp_w = 0
+    max_temp_w = 0
+    min_temp_a = 0
+    max_temp_a = 0
+    number_days = 0
+
+    # final output list
+    flist_daily = []
+    flist_summary = []
+
+    # for loop
+    for item in json_data["DailyForecasts"]:
+
+        # date   
+        date_day = item["Date"]
+
+        # temperature 
+        min_temp_d = (item["Temperature"]["Minimum"]["Value"])
+        max_temp_d = (item["Temperature"]["Maximum"]["Value"])
+        # convert temperature to C
+        c_min_temp_d = format_temperature(convert_f_to_c(min_temp_d))
+        c_max_temp_d = format_temperature(convert_f_to_c(max_temp_d))   
+        # for day 
+        long_chance_d = (item["Day"]["LongPhrase"])
+        long_chance_n = (item["Night"]["LongPhrase"])
+        rain_chance_d = (item["Day"]["RainProbability"])
+        rain_chance_n = (item["Night"]["RainProbability"])
+
+
+        # final print list
+        line6 = f"-------- {convert_date(date_day)} --------"
+        flist_daily.append(line6)
+        line7 = f"Minimum Temperature: {c_min_temp_d}"
+        flist_daily.append(line7)
+        line8 = f"Maximum Temperature: {c_max_temp_d}"
+        flist_daily.append(line8)
+        line9 = f"Daytime: {long_chance_d}"
+        flist_daily.append(line9)
+        line10 = f"    Chance of rain:  {rain_chance_d}%"
+        flist_daily.append(line10)
+        line11 = f"Nighttime: {long_chance_n}"
+        flist_daily.append(line11)
+        line12 = f"    Chance of rain:  {rain_chance_n}%\n"
+        flist_daily.append(line12)
+
+
+        # sum totals 
+        max_temp_a += max_temp_d
+        min_temp_a += min_temp_d
+        number_days += 1
+
+    # for 8 day forecast
+        if min_temp_w == 0:
+            min_temp_w = min_temp_d
+            min_date_w = item["Date"]
+        else:
+            if min_temp_d < min_temp_w:
+                min_temp_w = min_temp_d
+                min_date_w = item["Date"]
+
+            # if max_temp_d > max_temp_w:
+            #     max_temp_w = max_temp_d
+            #     max_date_w = item["Date"]
+
+        if max_temp_w == 0:
+            max_temp_w = max_temp_d
+            max_date_w = item["Date"]
+        else:
+            if max_temp_d > max_temp_w:
+                max_temp_w = max_temp_d
+                max_date_w = item["Date"]
+
+
+    # convert temperature to C
+    c_min_temp_w = format_temperature(convert_f_to_c(min_temp_w))
+    c_max_temp_w = format_temperature(convert_f_to_c(max_temp_w))    
+
+    
+    # final print list
+    line1 = f"{number_days} Day Overview"
+    flist_summary.append(line1)
+    line2 = f"    The lowest temperature will be {c_min_temp_w}, and will occur on {convert_date(min_date_w)}."
+    flist_summary.append(line2)
+    line3 = f"    The highest temperature will be {c_max_temp_w}, and will occur on {convert_date(max_date_w)}."
+    flist_summary.append(line3)
+    line4 = f"    The average low this week is {format_temperature(convert_f_to_c(calculate_mean(min_temp_a, number_days)))}."
+    flist_summary.append(line4)
+    line5 = f"    The average high this week is {format_temperature(convert_f_to_c(calculate_mean(max_temp_a, number_days)))}.\n\n"
+    flist_summary.append(line5)
+    
+    # # format final print list
+    flist_summary = "\n".join(flist_summary)
+    flist_daily = "\n".join(flist_daily)
+
+    # add together final print list
+    final_output = f"{flist_summary}{flist_daily}"
+    final_output = final_output + "\n"
+    return final_output
 
 if __name__ == "__main__":
     print(process_weather("data/forecast_5days_a.json"))
-
-
-
-
-#open the file
-with open("data/forecast_5days_a.json") as json_file:
-    json_data = json.load(json_file)
-
-
-# Variables for loop
-min_temp_a = 0
-date_day = 0
-
-
-#print unformatted data
-# print(json_data)
-
-
-
-
-#for loop
-for item in json_data["DailyForecasts"]:
-
-#for date   
-    date_day = (item["Date"])
-
-
-
-
-
-
-#for loop
-for item in json_data["DailyForecasts"]:
-
-#for date   
-    date_day = (item["Date"])
-    print(f"--------{convert_date(date_day)}--------")
-
-#for temperature 
-    min_temp_d = (item["Temperature"]["Minimum"]["Value"])
-    max_temp_d = (item["Temperature"]["Maximum"]["Value"])
-
-# convert temperature to C
-    c_min_temp_d = format_temperature(convert_f_to_c(min_temp_d))
-    c_max_temp_d = format_temperature(convert_f_to_c(max_temp_d))   
-    print( f"Minimum: {c_min_temp_d}, Maximum: {c_max_temp_d}")
-
-# for day 
-    long_chance_d = (item["Day"]["LongPhrase"])
-    long_chance_n = (item["Night"]["LongPhrase"])
-
-    rain_chance_d = (item["Day"]["PrecipitationProbability"])
-    rain_chance_n = (item["Night"]["PrecipitationProbability"])
-
-#### Print statement
-    print(f"Daytime: {long_chance_d}")
-    print(f"Chance of rain: {rain_chance_n}")
-
-    print(f"Nighttime: {long_chance_n}")
-    print(f"Chance of rain: {rain_chance_n}")
-
-# calculate the lowest, highest 
-min_temp_w = 0
-max_temp_w = 0
-
-#for loops min temp and day 8 day forecast
-for item in json_data["DailyForecasts"]:
-    min_temp_d = (item["Temperature"]["Minimum"]["Value"])
-    if min_temp_w == 0:
-        min_temp_w = min_temp_d
-        min_date_w = item["Date"]
-    else:
-        if min_temp_d < min_temp_w:
-            min_temp_w = min_temp_d
-            min_date_w = item["Date"]
-
-
-# convert temperature to C
-c_min_temp_w = format_temperature(convert_f_to_c(min_temp_w))
-
-#### Print statement
-print()
-print (f"The lowest temperature will be {c_min_temp_w}, and will occur on {convert_date(min_date_w)}")
-    
-
-
-
-#for loops max temp and day 8 day forecast
-for item in json_data["DailyForecasts"]:
-    max_temp_d = (item["Temperature"]["Maximum"]["Value"])
-    if max_temp_w == 0:
-        max_temp_w = max_temp_d
-        max_date_w = item["Date"]
-    else:
-        if max_temp_d > max_temp_w:
-            max_temp_w = max_temp_d
-            max_date_w = item["Date"]
-
-# convert temperature to C
-c_max_temp_w = format_temperature(convert_f_to_c(max_temp_w)) 
-
-
-#### Print statement
-
-
-
-
-print()
-
-# calculate the mean
-# low 11.7
-# high 20.1
-
-#for loop
-for item in json_data["DailyForecasts"]:
-
-#for date   
-    date_day = (item["Date"])
-
-#for temperature 
-    min_temp_d = (item["Temperature"]["Minimum"]["Value"])
-    max_temp_d = (item["Temperature"]["Maximum"]["Value"])
-
-
-    min_temp_a += min_temp_d
-date_day = 0
-date_day += 1
-
-
-
-# convert temperature to C
-# min_temp_a = format_temperature(convert_f_to_c(min_temp_a)) 
-
-print(f"The average low this week is {format_temperature(convert_f_to_c(calculate_mean(min_temp_a, date_day)))}.")
-
-min_temp_a = format_temperature(convert_f_to_c(min_temp_a)) 
-
-
-
-
-
-
-
-
-
-############## working file
-
-# # List to hold numbers entered by user
-# numbers = []
-
-
-# # While loop to add all items into a total
-# count = 0
-# while count < 4:
-#     number = int(input("Please enter a number "))
-#     numbers.append(number)
-#     count += 1
-
-# #get the total sum
-# total_sum = sum(numbers)
-# print(total_sum)
-
-# #get number of items in list
-# num_items = len(numbers)
-# print(num_items)
-
-# print (total_sum / num_items)
-
-
-# # Function to calculate the mean - did not figure this out
-# def calculate_mean(total_sum, num_items):
-#     mean = (total_sum) / (num_items)
-#     print(mean)
-#     return (f"the mean of the numbers is {mean})")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## an approach
-# for dates in DailyForecasts:
-# #print item off a list
-#     print (DailyForecasts["Date"])
-
-# for date in DailyForecasts(len(dates)):
-#         line1 = f"-------- {dates[date]} --------"
-#         output.append(line1)
-#         line2 = f"Minimum Temperature: {format_temperature(min_temp[date])}"
-#         output.append(line2)
-#         line3 = f"Maximum Temperature: {format_temperature(max_temp[date])}"
-#         output.append(line3)
-#         line4 = f"Daytime: {long_chance_d[date]}"
-#         output.append(line4)
-#         line5 = f"    Chance of rain:  {rain_chance_d[date]}%"
-#         output.append(line5)
-#         line6 = f"Nighttime: {long_chance_n[date]}"
-#         output.append(line6)
-#         line7 = f"    Chance of rain:  {rain_chance_n[date]}%"
-#         output.append(line7)
-
-#         final_output = "\n".join(output)
-#         print(final_output)
-
-
-
-
-
-
-
-
-
-
-# #output the file
-# with open("quiz_output.json", "w") as json_file:
-#     for option in options:
-#         json_file.write(option)
-
-
-
-
+    print(process_weather("data/forecast_5days_b.json"))
+    print(process_weather("data/forecast_8days.json"))
 
