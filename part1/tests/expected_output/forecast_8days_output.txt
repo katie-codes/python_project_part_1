@@ -1,0 +1,70 @@
+8 Day Overview
+    The lowest temperature will be 8.3°C, and will occur on Friday 19 June 2020.
+    The highest temperature will be 22.2°C, and will occur on Sunday 21 June 2020.
+    The average low this week is 11.4°C.
+    The average high this week is 19.8°C.
+
+-------- Friday 19 June 2020 --------
+Minimum Temperature: 8.3°C
+Maximum Temperature: 17.8°C
+Daytime: Sunshine mixing with some clouds
+    Chance of rain:  1%
+Nighttime: Clear
+    Chance of rain:  0%
+
+-------- Saturday 20 June 2020 --------
+Minimum Temperature: 10.6°C
+Maximum Temperature: 19.4°C
+Daytime: Plenty of sunshine
+    Chance of rain:  0%
+Nighttime: Clear
+    Chance of rain:  1%
+
+-------- Sunday 21 June 2020 --------
+Minimum Temperature: 14.4°C
+Maximum Temperature: 22.2°C
+Daytime: Pleasant with sunshine
+    Chance of rain:  1%
+Nighttime: Mainly clear
+    Chance of rain:  1%
+
+-------- Monday 22 June 2020 --------
+Minimum Temperature: 15.0°C
+Maximum Temperature: 21.7°C
+Daytime: Increasing clouds and breezy; periods of rain late this afternoon
+    Chance of rain:  67%
+Nighttime: Windy this evening with periods of rain; mostly cloudy
+    Chance of rain:  67%
+
+-------- Tuesday 23 June 2020 --------
+Minimum Temperature: 11.1°C
+Maximum Temperature: 19.4°C
+Daytime: A morning shower in spots; otherwise, intervals of clouds and sun
+    Chance of rain:  58%
+Nighttime: Partly cloudy
+    Chance of rain:  5%
+
+-------- Wednesday 24 June 2020 --------
+Minimum Temperature: 8.9°C
+Maximum Temperature: 18.9°C
+Daytime: Intervals of clouds and sun
+    Chance of rain:  2%
+Nighttime: Partly cloudy
+    Chance of rain:  0%
+
+-------- Thursday 25 June 2020 --------
+Minimum Temperature: 11.1°C
+Maximum Temperature: 20.0°C
+Daytime: Sunshine and patchy clouds
+    Chance of rain:  1%
+Nighttime: Partly cloudy
+    Chance of rain:  25%
+
+-------- Friday 26 June 2020 --------
+Minimum Temperature: 11.7°C
+Maximum Temperature: 18.9°C
+Daytime: Intervals of clouds and sunshine
+    Chance of rain:  25%
+Nighttime: Patchy clouds
+    Chance of rain:  3%
+
